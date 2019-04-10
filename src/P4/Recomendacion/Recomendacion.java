@@ -15,7 +15,25 @@ public class Recomendacion {
 
     }
 
-    public void addTupla(Tupla tupla) {
-
+    public long getUsuario() {
+        return Usuario;
     }
+
+    public void setUsuario(long usuario) {
+        Usuario = usuario;
+    }
+
+    public List<Tupla> getRecomendaciones() {
+        return recomendaciones;
+    }
+
+    public void setRecomendaciones(List<Tupla> recomendaciones) {
+        this.recomendaciones = recomendaciones;
+    }
+
+    public boolean addTupla(Tupla tupla) {
+        return recomendaciones.add(tupla);
+    }
+
+
 }
