@@ -3,16 +3,24 @@ package P4.Recomendacion.Similitud;
 import P4.ModeloDatos.ModeloDatos;
 import P4.ModeloDatos.ModeloDatosClass;
 
+import javax.imageio.event.IIOWriteProgressListener;
+import java.io.IOException;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
 public class SimilitudCoseno implements Similitud {
 
+    ModeloDatos datos = new ModeloDatosClass();
+
+    public SimilitudCoseno(String ruta) throws IOException {
+        datos.leeFicheroPreferencias(ruta);
+    }
+
     @Override
     public double sim(Long u1, Long u2) {
-        Map<Long, Double> PreferenciasU1 = null;    //acceder a modelodatos?
-        Map<Long, Double> PreferenciasU2 = null;    //acceder a modelodatos?
+        Map<Long, Double> PreferenciasU1 = datos.getPreferenciasUsuario(u1);    //acceder a modelodatos?
+        Map<Long, Double> PreferenciasU2 = datos.getPreferenciasUsuario(u2);    //acceder a modelodatos?
 
         Double sumU1 = 0.0;
         Double sumU2 = 0.0;
