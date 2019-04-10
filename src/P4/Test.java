@@ -1,6 +1,8 @@
 package P4;
 
 
+import P4.ModeloDatos.ModeloDatosClass;
+
 import java.io.IOException;
 
 public class Test {

@@ -1,4 +1,8 @@
-package P4;
+package P4.Recomendacion.Similitud;
+
+import P4.ModeloDatos.ModeloDatosClass;
+
+import java.util.Map;
 
 public class SimilitudCoseno implements Similitud {
 

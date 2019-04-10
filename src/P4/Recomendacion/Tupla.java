@@ -1,4 +1,4 @@
-package P4;
+package P4.Recomendacion;
 
 public class Tupla {
     private long Id;
