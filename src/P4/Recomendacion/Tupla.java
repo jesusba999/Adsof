@@ -1,27 +1,32 @@
 package P4.Recomendacion;
 
 public class Tupla {
-    private long Id;
-    private double Score;
+    private long id;
+    private double score;
 
     public Tupla(long id, double score) {
-        Id = id;
-        Score = score;
+        id = id;
+        score = score;
     }
 
     public long getId() {
-        return Id;
+        return id;
     }
 
     public void setId(long id) {
-        Id = id;
+        id = id;
     }
 
     public double getScore() {
-        return Score;
+        return score;
     }
 
     public void setScore(double score) {
-        Score = score;
+        score = score;
     }
+
+    public int compareTo(Tupla t) {
+        return this.score.compareTo(t.score);
+    }
+
 }
