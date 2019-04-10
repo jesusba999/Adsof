@@ -1,14 +1,39 @@
 package P4.Recomendacion.Similitud;
 
+import P4.ModeloDatos.ModeloDatos;
 import P4.ModeloDatos.ModeloDatosClass;
 
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 public class SimilitudCoseno implements Similitud {
 
     @Override
     public double sim(Long u1, Long u2) {
-        Map<Long, Double> PreferenciasU1= ModeloDatosClass.getPreferenciasUsuario(u1);
-        Map<Long, Double> PreferenciasU2= ModeloDatosClass.getPreferenciasUsuario(u2);
+        Integer i;
+
+        Map<Long, Double> PreferenciasU1 = null;
+        Map<Long, Double> PreferenciasU2 = null;
+        Set<Long> interseccionItems = new HashSet<>();
+
+        Double sumU1 = 0.0;
+        Double sumU2 = 0.0;
+        Double sumU1U2 = 0.0;
+
+        for(Object key : PreferenciasU1.keySet()) {
+            sumU1 += Math.pow(PreferenciasU1.get(key), 2);
+
+            if(PreferenciasU2.containsKey(key)) {
+                sumU1U2 += PreferenciasU1.get(key) * PreferenciasU2.get(key);
+            }
+        }
+
+        for(Object key : PreferenciasU2.keySet()) {
+            sumU2 += Math.pow(PreferenciasU2.get(key), 2);
+        }
+
+
+        return sumU1U2/(Math.sqrt(sumU1*sumU2));
     }
 }

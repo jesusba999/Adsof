@@ -9,6 +9,6 @@ public class Test {
     public static void main(String ...args) throws IOException {
         ModeloDatosClass test = new ModeloDatosClass();
 
-        test.leeFicheroPreferencias("src/PruebaTraining.txt");
+        test.leeFicheroPreferencias("src/P4/PruebaTraining.txt");
     }
 }
