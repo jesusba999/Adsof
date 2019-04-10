@@ -11,11 +11,8 @@ public class SimilitudCoseno implements Similitud {
 
     @Override
     public double sim(Long u1, Long u2) {
-        Integer i;
-
-        Map<Long, Double> PreferenciasU1 = null;
-        Map<Long, Double> PreferenciasU2 = null;
-        Set<Long> interseccionItems = new HashSet<>();
+        Map<Long, Double> PreferenciasU1 = null;    //acceder a modelodatos?
+        Map<Long, Double> PreferenciasU2 = null;    //acceder a modelodatos?
 
         Double sumU1 = 0.0;
         Double sumU2 = 0.0;
