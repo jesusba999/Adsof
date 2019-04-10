@@ -10,6 +10,12 @@ public class Recomendacion {
     private List<Tupla> recomendaciones = new ArrayList<>();
 
     public Recomendacion(long usuario) {
+
         Usuario = usuario;
+
+    }
+
+    public void addTupla(Tupla tupla) {
+
     }
 }
