@@ -40,6 +40,6 @@ public class RecomendadorDeVecinos implements Recomendador{
             }
         }
 
-        return null;
+        return recomendacion;
     }
 }
