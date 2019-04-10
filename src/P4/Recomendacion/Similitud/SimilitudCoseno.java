@@ -11,10 +11,10 @@ import java.util.Set;
 
 public class SimilitudCoseno implements Similitud {
 
-    ModeloDatos datos = new ModeloDatosClass();
+    ModeloDatos datos;
 
-    public SimilitudCoseno(String ruta) throws IOException {
-        datos.leeFicheroPreferencias(ruta);
+    public SimilitudCoseno(ModeloDatos datos) {
+        this.datos = datos;
     }
 
     @Override
