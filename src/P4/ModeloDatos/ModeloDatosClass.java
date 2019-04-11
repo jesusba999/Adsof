@@ -40,9 +40,6 @@ public class ModeloDatosClass implements ModeloDatos {
 
         }
         buffer.close();
-
-        System.out.println(preferenciasUsuario);
-        System.out.println(preferenciasItem);
     }
 
     @Override
