@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.util.*;
 
 public class RecomendadorPopularidad implements Recomendador {
-    private ModeloDatos datos = new ModeloDatosClass();
+    private ModeloDatos datos ;
 
     public RecomendadorPopularidad(ModeloDatos datos) {
         this.datos = datos;
@@ -26,7 +26,7 @@ public class RecomendadorPopularidad implements Recomendador {
         for(Long Item : ItemsUnicos){
             if(datos.getPreferenciasUsuario(u).containsKey(Item) == false){
                 Map<Long, Double> PreferenciasItem = datos.getPreferenciasItem(u);
-                long sumItem = 0;
+                double sumItem = 0;
                 for(Object key : PreferenciasItem.keySet()) {
                     sumItem += 1;
                 }
@@ -34,7 +34,7 @@ public class RecomendadorPopularidad implements Recomendador {
             }
         }
 
-        Tuplas.sort();
+        Collections.sort(Tuplas);
 
         int i = 0;
         for(Tupla tupla: Tuplas){
