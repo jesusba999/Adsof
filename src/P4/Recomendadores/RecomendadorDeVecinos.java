@@ -13,12 +13,12 @@ import java.util.Set;
 
 public class RecomendadorDeVecinos implements Recomendador{
 
-    private ModeloDatos datos = new ModeloDatosClass();
+    private ModeloDatos datos;
     private SimilitudCoseno similitudCoseno;
 
-    public RecomendadorDeVecinos(String ruta) throws IOException {
-        datos.leeFicheroPreferencias(ruta);
-        similitudCoseno = new SimilitudCoseno(ruta);
+    public RecomendadorDeVecinos(ModeloDatos datos){
+        this.datos = datos;
+        similitudCoseno = new SimilitudCoseno(datos);
     }
 
     public Recomendacion recomienda(Long u, int longitudRecomendacion) throws RecomendacionInvalida {
