@@ -9,7 +9,7 @@ import P4.Recomendacion.Tupla;
 import java.util.*;
 
 public class RecomendadorAleatorio implements Recomendador {
-    private ModeloDatos datos = new ModeloDatosClass();
+    private ModeloDatos datos;
 
     public RecomendadorAleatorio(ModeloDatos datos) {
         this.datos = datos;
@@ -23,7 +23,7 @@ public class RecomendadorAleatorio implements Recomendador {
         List<Tupla> tuplas = new ArrayList<>();
         for(Long Item : ItemsUnicos){
             if(datos.getPreferenciasUsuario(u).containsKey(Item) == false){
-                double sumItem = Math.random();
+                double sumItem = 5*Math.random();
                 tuplas.add(new Tupla(Item, sumItem));
             }
         }
