@@ -6,10 +6,7 @@ import P4.ModeloDatos.ModeloDatosClass;
 import P4.Recomendacion.Recomendacion;
 import P4.Recomendacion.Tupla;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 public class RecomendadorAleatorio implements Recomendador {
     private ModeloDatos datos = new ModeloDatosClass();
@@ -23,18 +20,18 @@ public class RecomendadorAleatorio implements Recomendador {
         Recomendacion recomendacion = new Recomendacion(u);
 
         Set<Long> ItemsUnicos = datos.getItemsUnicos();
-        List<Tupla> Tuplas = new ArrayList<>();
+        List<Tupla> tuplas = new ArrayList<>();
         for(Long Item : ItemsUnicos){
             if(datos.getPreferenciasUsuario(u).containsKey(Item) == false){
                 double sumItem = Math.random();
-                Tuplas.add(new Tupla(Item, sumItem));
+                tuplas.add(new Tupla(Item, sumItem));
             }
         }
 
-        Tuplas.sort(Tuplas);
+        Collections.sort(tuplas);
 
         int i = 0;
-        for(Tupla tupla: Tuplas){
+        for(Tupla tupla: tuplas){
             recomendacion.addTupla(tupla);
             i++;
             if(i ==longitudRecomendacion){

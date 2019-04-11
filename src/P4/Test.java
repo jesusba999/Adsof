@@ -19,7 +19,5 @@ public class Test {
         } catch (RecomendacionInvalida e) {
 
         }
-
-
     }
 }

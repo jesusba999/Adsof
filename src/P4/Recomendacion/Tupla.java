@@ -28,7 +28,7 @@ public class Tupla {
 
 
     public int compareTo(Tupla t) {
-        return this.score.compareTo(t.score);
+        return  (-1) * this.score.compareTo(t.score);
     }
 
 }
