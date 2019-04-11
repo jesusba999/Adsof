@@ -11,8 +11,9 @@ public class MetricaRecall extends MetricaClass {
     }
 
     public Double calcularMetrica(Set<Long> itemsRelevantes, Set<Long> recomendaciones, Double n ){
+        Double tamanio = Double.valueOf(itemsRelevantes.size());
         itemsRelevantes.retainAll(recomendaciones);
-        return Double.valueOf(itemsRelevantes.size())/n;
+        return Double.valueOf(itemsRelevantes.size())/tamanio;
 
     }
 

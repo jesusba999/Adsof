@@ -6,11 +6,27 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
-
+/**
+ * Implementa la interfaz ModeloDatos mediante la clase ModeloDatosClass
+ *
+ * @author Jesus Blanco y Daniel Calonge
+ */
 public class ModeloDatosClass implements ModeloDatos {
-    private static Map<Long, Map<Long, Double>>  preferenciasUsuario = new HashMap<>();
-    private static Map<Long, Map<Long, Double>>  preferenciasItem = new HashMap<>();
+    /**
+     * Datos ordenados segun el usuario
+     */
+    private  Map<Long, Map<Long, Double>>  preferenciasUsuario = new HashMap<>();
 
+    /**
+     * Datos ordenados segun el item
+     */
+    private  Map<Long, Map<Long, Double>>  preferenciasItem = new HashMap<>();
+
+    /**
+     * Guarda los datos leidos de un fichero en el modelo de datos
+     * @param ruta en la que se encuentra el fichero
+     * @throws IOException
+     */
     public void leeFicheroPreferencias(String ruta) throws IOException{
         BufferedReader buffer = new BufferedReader(new InputStreamReader(new FileInputStream(ruta)));
         String linea;
@@ -42,23 +58,36 @@ public class ModeloDatosClass implements ModeloDatos {
         buffer.close();
     }
 
+    /**
+     * Devuelve el map de preferencias del item que se pasa como argumento
+     */
     @Override
     public Map<Long, Double> getPreferenciasItem(Long item) {
         Map<Long, Double> Preferencias = preferenciasItem.get(item);
         return Collections.unmodifiableMap(Preferencias);
     }
 
+    /**
+     * Devuelve el map de preferencias del usuario que se pasa como argumento
+     */
     @Override
+
     public Map<Long, Double> getPreferenciasUsuario(Long usuario) {
         Map<Long, Double> Preferencias = preferenciasUsuario.get(usuario);
         return Collections.unmodifiableMap(Preferencias);
     }
 
+    /**
+     * Devuelve un set con los items unicos que hay en el modelo de datos
+     */
     @Override
     public Set<Long> getItemsUnicos() {
         return preferenciasItem.keySet();
     }
 
+    /**
+     * Devuelve un set con los usuarios unicos que hay en el modelo de datos
+     */
     @Override
     public Set<Long> getUsuariosUnicos() {
         return preferenciasUsuario.keySet();

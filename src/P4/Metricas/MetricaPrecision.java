@@ -12,9 +12,9 @@ public class MetricaPrecision extends MetricaClass {
     }
 
     public Double calcularMetrica(Set<Long> itemsRelevantes, Set<Long> recomendaciones, Double n ){
-        Double tamanio = Double.valueOf(itemsRelevantes.size());
+
         itemsRelevantes.retainAll(recomendaciones);
-        return Double.valueOf(itemsRelevantes.size())/tamanio;
+        return Double.valueOf(itemsRelevantes.size())/n;
 
     }
 

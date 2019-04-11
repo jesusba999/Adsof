@@ -11,18 +11,46 @@ import java.io.IOException;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
 
-public class RecomendadorDeVecinos implements Recomendador{
 
+/**
+ * Implementa la interfaz Recomendador con la clase RecomendadorDeVecinos
+ *
+ * @author Jesus Blanco y Daniel Calonge
+ */
+public class RecomendadorDeVecinos implements Recomendador{
+    /**
+     * Modelo de datos
+     */
     private ModeloDatos datos;
+
+    /**
+     * Tipo de similitud
+     */
     private SimilitudCoseno similitudCoseno;
+
+    /**
+     * Numero de vecinos para la recomendacion
+     */
     private Integer nVecinos;
 
+    /**
+     * Constructor de RecomendadorDeVecinos
+     * @param datos Modelo de datos
+     * @param nVecinos Numero de vecinos para la recomendacion
+     */
     public RecomendadorDeVecinos(ModeloDatos datos, Integer nVecinos){
         this.datos = datos;
         this.nVecinos = nVecinos;
         similitudCoseno = new SimilitudCoseno(datos);
     }
 
+    /**
+     * Hace una recomendacion a un usuario de longitudRecomendacion items
+     * @param u Id del usuario
+     * @param longitudRecomendacion numero de items
+     * @return Recomendacion
+     * @throws RecomendacionInvalida Recomendacion invalida
+     */
     public Recomendacion recomienda(Long u, int longitudRecomendacion) throws RecomendacionInvalida {
         Recomendacion recomendacion = new Recomendacion(u);
 

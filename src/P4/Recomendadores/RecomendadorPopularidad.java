@@ -10,13 +10,33 @@ import P4.Recomendacion.Tupla;
 import java.io.IOException;
 import java.util.*;
 
+
+/**
+ * Implementa la interfaz Recomendador con la clase RecomendadorPopularidad
+ *
+ * @author Jesus Blanco y Daniel Calonge
+ */
 public class RecomendadorPopularidad implements Recomendador {
+    /**
+     * Modelo de datos
+     */
     private ModeloDatos datos ;
 
+    /**
+     * Constructor de RecomendadorPopularidad
+     * @param datos Modelo de datos
+     */
     public RecomendadorPopularidad(ModeloDatos datos) {
         this.datos = datos;
     }
 
+    /**
+     * Hace una recomendacion a un usuario de longitudRecomendacion items
+     * @param u Id del usuario
+     * @param longitudRecomendacion numero de items
+     * @return Recomendacion
+     * @throws RecomendacionInvalida Recomendacion invalida
+     */
     @Override
     public Recomendacion recomienda(Long u, int longitudRecomendacion) throws RecomendacionInvalida {
         Recomendacion recomendacion = new Recomendacion(u);

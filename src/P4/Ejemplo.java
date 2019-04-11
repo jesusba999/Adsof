@@ -10,13 +10,17 @@ import P4.ModeloDatos.ModeloDatos;
 import P4.ModeloDatos.ModeloDatosClass;
 import P4.Recomendadores.*;
 
+/**
+ * Main de prueba
+ *
+ * @author Jesus Blanco y Daniel Calonge
+ */
 public class Ejemplo {
 
     public static void main(String[] args) throws IOException {
         RecomendadorDeVecinos recVec = null;
 
-        ModeloDatosClass test = new ModeloDatosClass();
-        test.leeFicheroPreferencias("test.txt");
+
 
         ModeloDatosClass training = new ModeloDatosClass();
         training.leeFicheroPreferencias("training.txt");
@@ -27,7 +31,8 @@ public class Ejemplo {
         RecomendadorAleatorio recAl = new RecomendadorAleatorio(training);
         RecomendadorPopularidad recPop = new RecomendadorPopularidad(training);
 
-
+        ModeloDatosClass test = new ModeloDatosClass();
+        test.leeFicheroPreferencias("test.txt");
 
         MetricaRecall recall = new MetricaRecall(3.0, test);
         MetricaPrecision precision = new MetricaPrecision(3.0, test);
@@ -40,6 +45,7 @@ public class Ejemplo {
         double sumaRecallPop = 0.0;
         double sumaPrecisionPop = 0.0;
         int cont = 0;
+        System.out.println(recall.getDatos().getUsuariosUnicos());
         for (Long usuario : recall.getDatos().getUsuariosUnicos()) {
             if (cont%10==0) {
                 System.out.println(cont+ " usuarios");

@@ -8,13 +8,32 @@ import P4.Recomendacion.Tupla;
 
 import java.util.*;
 
+/**
+ * Implementa la interfaz Recomendador con la clase RecomendadorAleatorio
+ *
+ * @author Jesus Blanco y Daniel Calonge
+ */
 public class RecomendadorAleatorio implements Recomendador {
+    /**
+     * Modelo de datos
+     */
     private ModeloDatos datos;
 
+    /**
+     * Constrictor de RecomendadorAleatorio
+     * @param datos Modelo de datos
+     */
     public RecomendadorAleatorio(ModeloDatos datos) {
         this.datos = datos;
     }
 
+    /**
+     * Hace una recomendacion a un usuario de longitudRecomendacion items
+     * @param u Id del usuario
+     * @param longitudRecomendacion numero de items
+     * @return Recomendacion
+     * @throws RecomendacionInvalida Recomendacion invalida
+     */
     @Override
     public Recomendacion recomienda(Long u, int longitudRecomendacion) throws RecomendacionInvalida {
         Recomendacion recomendacion = new Recomendacion(u);
