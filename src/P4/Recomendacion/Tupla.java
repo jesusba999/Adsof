@@ -1,11 +1,11 @@
 package P4.Recomendacion;
 
 
-public class Tupla {
-    private long id;
+public class Tupla implements Comparable<Tupla>{
+    private Long id;
     private Double score;
 
-    public Tupla(long id, double score) {
+    public Tupla(Long id, Double score) {
         this.id = id;
         this.score = score;
     }
@@ -14,7 +14,7 @@ public class Tupla {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

@@ -8,8 +8,7 @@ import P4.Recomendacion.Similitud.SimilitudCoseno;
 import P4.Recomendacion.Tupla;
 
 import java.io.IOException;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 public class RecomendadorDeVecinos implements Recomendador{
 
@@ -25,6 +24,7 @@ public class RecomendadorDeVecinos implements Recomendador{
         Recomendacion recomendacion = new Recomendacion(u);
 
         Double score = 0.0;
+        List<Tupla> tuplas = new ArrayList<>();     //ArrayList con todas las tuplas
 
         for(Long key : datos.getItemsUnicos()) {
             if(datos.getPreferenciasUsuario(u).containsKey(key) == false) {
@@ -36,9 +36,11 @@ public class RecomendadorDeVecinos implements Recomendador{
                     }
                 }
 
-                recomendacion.addTupla(new Tupla(key, score));
+                tuplas.add(new Tupla(key, score));
             }
         }
+
+        Collections.sort(tuplas);
 
         return recomendacion;
     }
