@@ -25,7 +25,7 @@ public class RecomendadorPopularidad implements Recomendador {
         List<Tupla> Tuplas = new ArrayList<>();
         for(Long Item : ItemsUnicos){
             if(datos.getPreferenciasUsuario(u).containsKey(Item) == false){
-                Map<Long, Double> PreferenciasItem = datos.getPreferenciasItem(u);
+                Map<Long, Double> PreferenciasItem = datos.getPreferenciasItem(Item);
                 double sumItem = 0;
                 for(Object key : PreferenciasItem.keySet()) {
                     sumItem += 1;
