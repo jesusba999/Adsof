@@ -62,6 +62,72 @@ public class RecomendadorDeVecinos implements Recomendador{
             throw new RecomendacionInvalida();
         }
 
+        HashMap<Long, Double> usersSim = new HashMap<>();
+
+        for(Long user : datos.getUsuariosUnicos()) {
+            if(user != u) {
+                usersSim.put(user, similitudCoseno.sim(u, user));
+            }
+        }
+
+        for(Long key : datos.getItemsUnicos()) {
+            if(datos.getPreferenciasUsuario(u).containsKey(key) == false) {
+                score = 0.0;
+
+                ArrayList<Long> usersWithItem = new ArrayList<>();
+
+                for(Long user : datos.getPreferenciasItem(key).keySet()) {
+                    if(user != u) {
+                        usersWithItem.add(user);
+                    }
+                }
+
+                List<Tupla> usersSorted = new ArrayList<>();
+
+                for(Long usr : usersWithItem) {
+                    usersSorted.add(new Tupla(usr, usersSim.get(usr)));
+                }
+
+                Collections.sort(usersSorted);
+
+                i = 0;
+                for(Tupla t : usersSorted) {
+                    score += t.getScore() * datos.getPreferenciasUsuario(t.getId()).get(key);
+                    i++;
+                    if(i == nVecinos){
+                        break;
+                    }
+                }
+
+                tuplas.add(new Tupla(key, score));
+            }
+        }
+
+        Collections.sort(tuplas);
+
+        i = 0;
+        for(Tupla t : tuplas) {
+            recomendacion.addTupla(t);
+            i++;
+            if(i ==longitudRecomendacion){
+                break;
+            }
+        }
+
+        return recomendacion;
+    }
+
+    /*public Recomendacion recomienda(Long u, int longitudRecomendacion) throws RecomendacionInvalida {
+        Recomendacion recomendacion = new Recomendacion(u);
+
+        Double score = 0.0;
+        List<Tupla> tuplas = new ArrayList<>();     //ArrayList con todas las tuplas de los items con los score
+        int i;
+
+        if(datos.getUsuariosUnicos().contains(u) == false || longitudRecomendacion <=0) {
+            throw new RecomendacionInvalida();
+        }
+
         for(Long key : datos.getItemsUnicos()) {
             if(datos.getPreferenciasUsuario(u).containsKey(key) == false) {
                 score = 0.0;
@@ -101,5 +167,5 @@ public class RecomendadorDeVecinos implements Recomendador{
         }
 
         return recomendacion;
-    }
+    }*/
 }

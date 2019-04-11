@@ -26,7 +26,7 @@ public class Ejemplo {
         training.leeFicheroPreferencias("training.txt");
 
 
-        recVec = new RecomendadorDeVecinos(training,100);
+        recVec = new RecomendadorDeVecinos(training,10);
 
         RecomendadorAleatorio recAl = new RecomendadorAleatorio(training);
         RecomendadorPopularidad recPop = new RecomendadorPopularidad(training);
