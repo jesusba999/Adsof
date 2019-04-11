@@ -42,6 +42,15 @@ public class RecomendadorDeVecinos implements Recomendador{
 
         Collections.sort(tuplas);
 
+        int i = 0;
+        for(Tupla t : tuplas) {
+            recomendacion.addTupla(t);
+            i++;
+            if(i ==longitudRecomendacion){
+                break;
+            }
+        }
+
         return recomendacion;
     }
 }
