@@ -1,4 +1,4 @@
-package P4.Recomendadores;
+package P4.Metricas;
 
 import P4.ModeloDatos.ModeloDatos;
 

@@ -1,5 +1,6 @@
-package P4.Recomendadores;
+package P4.Metricas;
 
+import P4.Exceptions.UsuarioNoRelevante;
 import P4.ModeloDatos.ModeloDatos;
 import P4.Recomendacion.Recomendacion;
 import P4.Recomendacion.Tupla;
@@ -18,7 +19,6 @@ public abstract class MetricaClass implements Metrica{
         this.datos = datos;
     }
 
-    @Override
     public double evalua(Recomendacion rec, int n) throws UsuarioNoRelevante {
         Long u = rec.getUsuario();
         Set<Long> itemsRelevantes = getItemsRelevantes(u);
@@ -35,7 +35,6 @@ public abstract class MetricaClass implements Metrica{
         return calcularMetrica(itemsRelevantes, recomendaciones, Double.valueOf(n));
     }
 
-    @Override
     public Set<Long> getItemsRelevantes(Long u) {
         Map<Long, Double> preferenciasUsuario = datos.getPreferenciasUsuario(u);
         Set<Long> items = new HashSet<>();
@@ -48,4 +47,8 @@ public abstract class MetricaClass implements Metrica{
     }
 
     public abstract Double calcularMetrica(Set<Long> itemsRelevantes, Set<Long> recomendaciones, Double n );
+
+    public ModeloDatos getDatos() {
+        return datos;
+    }
 }

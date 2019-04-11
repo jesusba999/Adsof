@@ -1,5 +1,6 @@
-package P4.Recomendadores;
+package P4.Metricas;
 
+import P4.Exceptions.UsuarioNoRelevante;
 import P4.Recomendacion.Recomendacion;
 
 import java.util.Set;

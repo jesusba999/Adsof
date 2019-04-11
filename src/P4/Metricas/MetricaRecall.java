@@ -1,11 +1,10 @@
-package P4.Recomendadores;
+package P4.Metricas;
 
 import P4.ModeloDatos.ModeloDatos;
 
 import java.util.Set;
 
 public class MetricaRecall extends MetricaClass {
-
 
     public MetricaRecall(double notaMinima, ModeloDatos datos) {
         super(notaMinima, datos);
@@ -16,4 +15,6 @@ public class MetricaRecall extends MetricaClass {
         return Double.valueOf(itemsRelevantes.size())/n;
 
     }
+
+
 }
