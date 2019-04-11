@@ -1,12 +1,13 @@
 package P4.Recomendacion;
 
+
 public class Tupla {
     private long id;
-    private double score;
+    private Double score;
 
     public Tupla(long id, double score) {
-        id = id;
-        score = score;
+        this.id = id;
+        this.score = score;
     }
 
     public long getId() {
@@ -14,16 +15,17 @@ public class Tupla {
     }
 
     public void setId(long id) {
-        id = id;
+        this.id = id;
     }
 
-    public double getScore() {
+    public Double getScore() {
         return score;
     }
 
-    public void setScore(double score) {
-        score = score;
+    public void setScore(Double score) {
+        this.score = score;
     }
+
 
     public int compareTo(Tupla t) {
         return this.score.compareTo(t.score);
