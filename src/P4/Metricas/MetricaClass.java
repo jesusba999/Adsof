@@ -2,6 +2,7 @@ package P4.Metricas;
 
 import P4.Exceptions.UsuarioNoRelevante;
 import P4.ModeloDatos.ModeloDatos;
+import P4.ModeloDatos.ModeloDatosClass;
 import P4.Recomendacion.Recomendacion;
 import P4.Recomendacion.Tupla;
 
@@ -12,9 +13,9 @@ import java.util.Set;
 
 public abstract class MetricaClass implements Metrica{
     private double notaMinima;
-    private ModeloDatos datos;
+    private ModeloDatosClass datos;
 
-    public MetricaClass(double notaMinima, ModeloDatos datos) {
+    public MetricaClass(double notaMinima, ModeloDatosClass datos) {
         this.notaMinima = notaMinima;
         this.datos = datos;
     }

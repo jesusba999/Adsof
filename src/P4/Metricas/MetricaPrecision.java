@@ -1,13 +1,14 @@
 package P4.Metricas;
 
 import P4.ModeloDatos.ModeloDatos;
+import P4.ModeloDatos.ModeloDatosClass;
 
 import java.util.Set;
 
 public class MetricaPrecision extends MetricaClass {
 
 
-    public MetricaPrecision(double notaMinima, ModeloDatos datos) {
+    public MetricaPrecision(double notaMinima, ModeloDatosClass datos) {
         super(notaMinima, datos);
     }
 

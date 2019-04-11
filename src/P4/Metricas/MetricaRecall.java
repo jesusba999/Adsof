@@ -1,12 +1,13 @@
 package P4.Metricas;
 
 import P4.ModeloDatos.ModeloDatos;
+import P4.ModeloDatos.ModeloDatosClass;
 
 import java.util.Set;
 
 public class MetricaRecall extends MetricaClass {
 
-    public MetricaRecall(double notaMinima, ModeloDatos datos) {
+    public MetricaRecall(double notaMinima, ModeloDatosClass datos) {
         super(notaMinima, datos);
     }
 
@@ -16,6 +17,5 @@ public class MetricaRecall extends MetricaClass {
         return Double.valueOf(itemsRelevantes.size())/tamanio;
 
     }
-
 
 }
