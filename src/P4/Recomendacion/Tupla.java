@@ -31,4 +31,11 @@ public class Tupla implements Comparable<Tupla>{
         return  (-1) * this.score.compareTo(t.score);
     }
 
+    @Override
+    public String toString() {
+        return "Tupla{" +
+                "id=" + id +
+                ", score=" + score +
+                '}';
+    }
 }

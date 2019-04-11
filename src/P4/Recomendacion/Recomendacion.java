@@ -35,5 +35,11 @@ public class Recomendacion {
         return recomendaciones.add(tupla);
     }
 
-
+    @Override
+    public String toString() {
+        return "Recomendacion{" +
+                "Usuario=" + Usuario +
+                ", recomendaciones=" + recomendaciones +
+                '}';
+    }
 }
