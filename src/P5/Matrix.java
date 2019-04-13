@@ -128,5 +128,5 @@ public class Matrix implements IMatrix {
         return true;
     }
 
-    //hashCode??
+    //hashCode?
 }
