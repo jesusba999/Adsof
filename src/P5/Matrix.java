@@ -1,8 +1,6 @@
 package P5;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 public class Matrix implements IMatrix {
 
@@ -97,4 +95,38 @@ public class Matrix implements IMatrix {
 
         return list;
     }
+
+    @Override
+    public List<IMatrixElement> asListSortedBy(Comparator<IMatrixElement> c) {
+        List<IMatrixElement> l = asList();
+
+        Collections.sort(l, c);
+
+        return l;
+    }
+
+    public boolean equals(IMatrix m) {
+        int i;
+
+        if(m == null) {
+            return false;
+        }
+
+        List<IMatrixElement> l1 = asList();
+        List<IMatrixElement> l2 = m.asList();
+
+        if(l1.size() != l2.size()) {
+            return false;
+        }
+
+        for(i = 0; i < l1.size(); i++) {
+            if(l1.get(i).equals(l2.get(i)) == false) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    //hashCode??
 }

@@ -1,5 +1,6 @@
 package P5;
 
+import java.util.Comparator;
 import java.util.List;
 
 public interface IMatrix<T> {
@@ -10,4 +11,5 @@ public interface IMatrix<T> {
     IMatrixElement<T> getElementAt(int i, int j) throws IllegalPositionException;
     List<IMatrixElement<T>> getNeighboursAt(int i, int j) throws IllegalPositionException;
     List<IMatrixElement<T>> asList();
+    List<IMatrixElement<T>> asListSortedBy(Comparator<IMatrixElement<T>> c);
 }
