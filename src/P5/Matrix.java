@@ -1,12 +1,14 @@
 package P5;
 
 import java.util.*;
+import java.util.Comparator;
+
 
 public class Matrix implements IMatrix {
 
     private Integer nRows;
     private Integer nCols;
-    private HashMap<Integer, HashMap<Integer, IMatrixElement>> matrix = new HashMap<>();
+    private HashMap<Integer, HashMap<Integer, IMatrixElement<T>>> matrix = new HashMap<>();
 
     public Matrix(Integer nRows, Integer nCols) {
         this.nRows = nRows;
@@ -32,7 +34,7 @@ public class Matrix implements IMatrix {
     }
 
     @Override
-    public void addElement(IMatrixElement element) throws IllegalPositionException {
+    public void addElement(IMatrixElement<T> element) throws IllegalPositionException {
         int i = element.getI();
         int j = element.getJ();
 
@@ -96,13 +98,11 @@ public class Matrix implements IMatrix {
         return list;
     }
 
-    @Override
-    public List<IMatrixElement> asListSortedBy(Comparator<IMatrixElement> c) {
-        List<IMatrixElement> l = asList();
 
-        Collections.sort(l, c);
+    public List<IMatrixElement<T>> asListSortedBy(Comparator<IMatrixElement<T>> c) {
 
-        return l;
+
+        return null;
     }
 
     public boolean equals(IMatrix m) {
@@ -128,5 +128,19 @@ public class Matrix implements IMatrix {
         return true;
     }
 
-    //hashCode?
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Matrix matrix1 = (Matrix) o;
+        return Objects.equals(nRows, matrix1.nRows) &&
+                Objects.equals(nCols, matrix1.nCols) &&
+                Objects.equals(matrix, matrix1.matrix);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(nRows, nCols, matrix);
+    }
+//hashCode?
 }
