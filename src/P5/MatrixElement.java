@@ -26,7 +26,11 @@ public class MatrixElement<T> implements IMatrixElement<T> {
     }
 
     public boolean equals(Object obj){
-
+        if(getI() == ((MatrixElement<T>)obj).getI() && getJ() == ((MatrixElement<T>)obj).getJ() && element.equals(((MatrixElement<T>)obj).getElement())) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
 }

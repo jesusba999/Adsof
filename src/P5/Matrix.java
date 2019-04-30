@@ -4,7 +4,7 @@ import java.util.*;
 import java.util.Comparator;
 
 
-public class Matrix implements IMatrix {
+public class Matrix<T> implements IMatrix<T> {
 
     private Integer nRows;
     private Integer nCols;
@@ -42,7 +42,7 @@ public class Matrix implements IMatrix {
             throw new IllegalPositionException();
         }
 
-        HashMap<Integer, IMatrixElement> col = new HashMap<>();
+        HashMap<Integer, IMatrixElement<T>> col = new HashMap<>();
 
         if(matrix.get(i) != null) {
 
@@ -77,7 +77,7 @@ public class Matrix implements IMatrix {
     }
 
     @Override
-    public List<IMatrixElement> getNeighboursAt(int i, int j) throws IllegalPositionException {
+    public List<IMatrixElement<T>> getNeighboursAt(int i, int j) throws IllegalPositionException {
         if(isLegalPosition(i, j)) {
             throw new IllegalPositionException();
         }
@@ -86,8 +86,8 @@ public class Matrix implements IMatrix {
     }
 
     @Override
-    public List<IMatrixElement> asList() {
-        List<IMatrixElement> list = new ArrayList<>();
+    public List<IMatrixElement<T>> asList() {
+        List<IMatrixElement<T>> list = new ArrayList<>();
 
         for(Integer i : matrix.keySet()) {
             for(Integer j : matrix.get(i).keySet()) {
@@ -101,19 +101,22 @@ public class Matrix implements IMatrix {
 
     public List<IMatrixElement<T>> asListSortedBy(Comparator<IMatrixElement<T>> c) {
 
+        List<IMatrixElement<T>> l = asList();
 
-        return null;
+        Collections.sort(l, c);
+
+        return l;
     }
 
-    public boolean equals(IMatrix m) {
+    public boolean equals(Object m) {
         int i;
 
         if(m == null) {
             return false;
         }
 
-        List<IMatrixElement> l1 = asList();
-        List<IMatrixElement> l2 = m.asList();
+        List<IMatrixElement<T>> l1 = asList();
+        List<IMatrixElement<T>> l2 = ((IMatrix<T>)m).asList();
 
         if(l1.size() != l2.size()) {
             return false;
@@ -128,19 +131,13 @@ public class Matrix implements IMatrix {
         return true;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Matrix matrix1 = (Matrix) o;
-        return Objects.equals(nRows, matrix1.nRows) &&
-                Objects.equals(nCols, matrix1.nCols) &&
-                Objects.equals(matrix, matrix1.matrix);
-    }
 
     @Override
     public int hashCode() {
         return Objects.hash(nRows, nCols, matrix);
     }
-//hashCode?
+
+    public Comparator<IMatrixElement<T>> compare(Object o1, Object o2){
+        return null;
+    }
 }
