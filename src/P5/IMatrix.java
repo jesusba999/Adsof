@@ -1,5 +1,12 @@
 package P5;
 
+/**
+ * Contiene la interfaz de la matriz
+ *
+ * @author Jesus Blanco y Daniel Calonge
+ */
+
+
 import java.util.Comparator;
 import java.util.List;
 
