@@ -34,12 +34,14 @@ public class BasicSimulator {
 
         Cell agentCell = new Cell(i, j , agentes, this);
 
-        if(){
-
+        if(entorno.getElementAt(i,j) != null){
+            ((Cell) (entorno.getElementAt(i, j))).addAgents(listaAgentes);
         }
         else{
             entorno.addElement(agentCell);
         }
+
+
     }
 
     public void run(int pasos) {
