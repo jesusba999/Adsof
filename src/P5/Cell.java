@@ -1,5 +1,7 @@
 package P5;
 
+import P5.Matrix.MatrixElement;
+
 import java.util.List;
 
 /**
@@ -9,7 +11,7 @@ import java.util.List;
  */
 
 
-public class Cell extends MatrixElement<List<IBasicAgent>>{
+public class Cell extends MatrixElement<List<IBasicAgent>> {
     private int i;
     private int j;
 }

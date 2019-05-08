@@ -1,5 +1,7 @@
 package P5;
 
+import P5.Matrix.Matrix;
+
 import java.util.List;
 
 
@@ -9,7 +11,7 @@ import java.util.List;
  *
  * @author Jesus Blanco y Daniel Calonge
  */
-public class Entorno extends Matrix<List<IBasicAgent>>{
+public class Entorno extends Matrix<List<IBasicAgent>> {
     /**
      * Constructor de entorno
      * @param nRows numero de filas
