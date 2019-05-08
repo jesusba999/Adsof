@@ -1,5 +1,7 @@
 package P5;
 
+import java.util.List;
+
 /**
  * Contiene la clase de una celda
  *
@@ -7,7 +9,7 @@ package P5;
  */
 
 
-public class Cell {
+public class Cell extends MatrixElement<List<IBasicAgent>>{
     private int i;
     private int j;
 }
