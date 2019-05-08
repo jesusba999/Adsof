@@ -33,7 +33,7 @@ public class Entorno extends Matrix<List<IBasicAgent>> {
             for(j = 0; j < this.getCols(); j++){
                 try {
                     if (this.getElementAt(i, j) == null) {
-                        cadena += "· |  ";
+                        cadena += " 0|  ";
                     }
                     else {
                         cadena += String.format("%3s",((List)  this.getElementAt(i,j).getElement()).size() + "|  ");
