@@ -24,6 +24,12 @@ public class MatrixElement<T> implements IMatrixElement<T> {
      */
     private T element;
 
+    public MatrixElement(int i, int j, T element) {
+        this.i = i;
+        this.j = j;
+        this.element = element;
+    }
+
     /**
      * Devuelve la coordenada i
      * @return Coordenada i

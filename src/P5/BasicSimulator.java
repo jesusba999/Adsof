@@ -35,7 +35,7 @@ public class BasicSimulator {
         Cell agentCell = new Cell(i, j , agentes, this);
 
         if(entorno.getElementAt(i,j) != null){
-            ((Cell) (entorno.getElementAt(i, j))).addAgents(listaAgentes);
+            ((Cell) (entorno.getElementAt(i, j))).anadirAgentes(agentes);
         }
         else{
             entorno.addElement(agentCell);

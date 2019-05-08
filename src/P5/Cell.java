@@ -10,6 +10,30 @@ import java.util.List;
 
 
 public class Cell extends MatrixElement<List<IBasicAgent>>{
-    private int i;
-    private int j;
+
+    /**
+     * Simulador que utilizamos
+     */
+    BasicSimulator simulador;
+
+    /**
+     * Constructor de la celda
+     * @param i fila
+     * @param j columna
+     * @param element Elemento
+     * @param simulador simulador
+     */
+    public Cell(int i, int j, List<IBasicAgent> element, BasicSimulator simulador) {
+        super(i, j, element);
+        this.simulador = simulador;
+    }
+
+
+    public List<IBasicAgent> getElement() {
+        return super.getElement();
+    }
+
+    public void anadirAgentes(List<IBasicAgent> lista){
+        getElement().addAll(lista);
+    }
 }

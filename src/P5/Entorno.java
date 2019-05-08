@@ -19,7 +19,10 @@ public class Entorno extends Matrix<List<IBasicAgent>>{
         super(nRows, nCols);
     }
 
-
+    /**
+     * Convierte el entorno en un string para poder imprimirlo
+     * @return String
+     */
     public String toString() {
         int i, j;
         String cadena = "  ";
@@ -31,7 +34,7 @@ public class Entorno extends Matrix<List<IBasicAgent>>{
                         cadena += "· |  ";
                     }
                     else {
-                        cadena += String.format("%3s",  this.getElementAt(i,j).getElement().size() + "|  ");
+                        cadena += String.format("%3s",((List)  this.getElementAt(i,j).getElement()).size() + "|  ");
                     }
                 } catch (IllegalPositionException e) {
                     e.printStackTrace();
@@ -39,6 +42,6 @@ public class Entorno extends Matrix<List<IBasicAgent>>{
             }
             cadena += "\n  ";
         }
-
+        return cadena;
     }
 }
