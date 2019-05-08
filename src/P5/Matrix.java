@@ -184,6 +184,10 @@ public class Matrix<T> implements IMatrix<T> {
             return false;
         }
 
+        if(this == m){
+            return true;
+        }
+
         List<IMatrixElement<T>> l1 = asList();
         List<IMatrixElement<T>> l2 = ((IMatrix<T>)m).asList();
 
@@ -210,12 +214,44 @@ public class Matrix<T> implements IMatrix<T> {
     }
 
     /**
-     * Comparador
-     * @param o1
-     * @param o2
-     * @return
+     * Comparador por columas
+     * @param o1 objeto a comparar
+     * @param o2 objeto a comparar
+     * @return 0 si son iguales, o distinto de 0 si son diferentes
      */
-    public Comparator<IMatrixElement<T>> compare(Object o1, Object o2){
-        return null;
+    public Comparator<IMatrixElement<T>> getColsComparator(Object o1, Object o2){
+
+        Comparator<IMatrixElement<T>> colsComparator = new Comparator<>(){
+
+            @Override
+            public int compare(IMatrixElement<T> t1, IMatrixElement<T> t2) {
+                if(t1.getJ() != t2.getJ()){
+                    return t1.getJ() - t2.getJ();
+
+                }else {
+                    return t1.getI() - t2.getI();
+
+                }
+            }
+        };
+        return colsComparator;
+    }
+
+    public Comparator<IMatrixElement<T>> getRowsComparator(Object o1, Object o2){
+
+        Comparator<IMatrixElement<T>> rowsComparator = new Comparator<>(){
+
+            @Override
+            public int compare(IMatrixElement<T> t1, IMatrixElement<T> t2) {
+                if(t1.getI() != t2.getI()){
+                    return t1.getI() - t2.getI();
+
+                }else {
+                    return t1.getJ() - t2.getJ();
+
+                }
+            }
+        };
+        return rowsComparator;
     }
 }

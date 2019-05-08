@@ -1,5 +1,7 @@
 package P5;
 
+import java.util.List;
+
 /**
  * Contiene la clase del simulador basico
  *
@@ -7,8 +9,16 @@ package P5;
  */
 
 public class BasicSimulator {
+    /**
+     * Constructor del simulador basico
+     * @param nrows numero de filas
+     * @param ncols numero de columnas
+     */
+    public BasicSimulator(int nrows, int ncols) {
 
-    public BasicSimulator(Integer 10, Integer 10) {
+    }
+
+    public void create(IBasicAgent agent, int numero, int i, int j){
 
     }
 }
