@@ -1,4 +1,4 @@
-package P5;
+package P5.Matrix;
 
 /**
  * Contiene la interfaz de la matriz
@@ -6,6 +6,8 @@ package P5;
  * @author Jesus Blanco y Daniel Calonge
  */
 
+
+import P5.IllegalPositionException;
 
 import java.util.Comparator;
 import java.util.List;

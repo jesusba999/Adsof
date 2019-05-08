@@ -1,4 +1,4 @@
-package P5;
+package P5.Matrix;
 
 /**
  * Contiene la clase de los elemento de la matriz
